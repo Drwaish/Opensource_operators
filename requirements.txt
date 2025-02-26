@@ -1,0 +1,2 @@
+python-dotenv
+browser-use
