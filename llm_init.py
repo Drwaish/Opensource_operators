@@ -2,23 +2,16 @@
 from os import getenv
 from typing import Optional
 from dotenv import load_dotenv
-from langchain_community.chat_models import ChatOpenAI
-# from openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 
-
-class ChatOpenRouter(ChatOpenAI):
-    openai_api_base: str
-    openai_api_key: str
-    model_name: str
-
-    def __init__(self,
-                 model_name: str,
-                 openai_api_key: Optional[str] = None,
-                 openai_api_base: str = "https://openrouter.ai/api/v1",
-                 **kwargs):
-        openai_api_key = openai_api_key or getenv("OPENROUTER_API_KEY")
-        super().__init__(openai_api_base="https://openrouter.ai/api/v1",
-                         openai_api_key=openai_api_key,
-                         model_name=model_name, **kwargs)
+api_key = getenv("Google_API_KEY")
+model = getenv("Google_MODEL")
+def get_llm() -> ChatGoogleGenerativeAI:
+    """Initialize the LLM using using googlel model
+    
+    Parameters
+    ----------
+    """
+    return ChatGoogleGenerativeAI(api_key=api_key or getenv("Google_API_KEY"), model=model or getenv("GOOGLE_MODEL"))
