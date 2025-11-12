@@ -1,5 +1,5 @@
 # AI AUTO Browser
-Automate yiur browser base task, execute the task from python script.
+Automate your browser base task, execute the task from python script.
 
 # Setup
 Open the terminal and enter
